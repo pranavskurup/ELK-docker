@@ -26,5 +26,7 @@ kibana:
 filebeat:
     build: filebeat
     user: oneweb
+    volumes:
+        - ./data/services:/opt/oneweb/services
     links:
         - logstash
