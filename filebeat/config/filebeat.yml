@@ -4,12 +4,55 @@ filebeat:
             paths:
                 - /opt/oneweb/services/oneweb-sdk/*.log
             input_type: log
-            document_type: catalina
+            document_type: logs
+            fields: 
+                tenant: core
+                appliance: core-d01
+                service: core-d01-tomcat-sdk-1
+                service_impl: proxy
+                shipper: filebeat
+                tags: "filebeat,core-d01-tomcat-sdk-1,tomcat"
 
-registry_file: /opt/oneweb/fb_registry.filebeat
-
+    registry_file: /opt/oneweb/fb_registry.filebeat
+shipper:
+    name: core-d01-fb-1
 output:
     logstash:
         hosts: ["logstash:5044"]
         worker: 1
         index: catalina
+
+
+
+logging:
+    # Send all logging output to syslog. On Windows default is false, otherwise
+    # default is true.
+    to_syslog: false
+
+    # Write all logging output to files. Beats automatically rotate files if rotateeverybytes
+    # limit is reached.
+    to_files: true
+
+    # To enable logging to files, to_files option has to be set to true
+    files:
+        # The directory where the log files will written to.
+        path: /opt/oneweb/services/filebeat
+
+        # The name of the files where the logs are written to.
+        name: filebeat.log
+
+        # Configure log file size limit. If limit is reached, log file will be
+        # automatically rotated
+        rotateeverybytes: 10485760 # = 10MB
+
+        # Number of rotated log files to keep. Oldest files will be deleted first.
+        keepfiles: 5
+
+        # Enable debug output for selected components. To enable all selectors use ["*"]
+        # Other available selectors are beat, publish, service
+        # Multiple selectors can be chained.
+        #selectors: [ ]
+
+        # Sets log level. The default log level is error.
+        # Available log levels are: critical, error, warning, info, debug
+        level: info

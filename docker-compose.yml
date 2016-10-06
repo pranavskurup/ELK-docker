@@ -5,7 +5,7 @@ elasticsearch:
         - 9200:9200
     volumes:
         - ./data/elasticsearch:/opt/oneweb/elasticsearch/data
-        - ./log/elasticsearch:/opt/oneweb/elasticsearch/log
+        - ./logs/elasticsearch:/opt/oneweb/elasticsearch/log
 
 logstash:
     build: logstash
@@ -27,7 +27,7 @@ filebeat:
     build: filebeat
     user: oneweb
     volumes:
-        - ./log/services:/opt/oneweb/services
+        - ./logs:/opt/oneweb/services
     links:
         - logstash
 
@@ -37,4 +37,4 @@ oneweb-sdk:
     ports:
         - 8080:8080
     volumes:
-        - ./log/services/oneweb-sdk:/opt/oneweb/oneweb-sdk/logs
+        - ./logs/oneweb-sdk:/opt/oneweb/oneweb-sdk/logs
