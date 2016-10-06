@@ -1,8 +1,17 @@
 elasticsearch:
-    build: ./elasticsearch
+    build: elasticsearch
     user: oneweb
     ports:
         - 9200:9200
     volumes:
         - ./data/elasticsearch:/opt/oneweb/elasticsearch/data
         - ./log/elasticsearch:/opt/oneweb/elasticsearch/log
+
+logstash:
+    build: logstash
+    user: oneweb
+    command: logstash -f /config-dir/logstash.conf
+    ports:
+        - 5044:5044
+    links:
+        - elasticsearch
