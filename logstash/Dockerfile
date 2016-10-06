@@ -25,6 +25,7 @@ RUN \
 
 RUN mv ${LS_TMP} ${LS_HOME}
 COPY config ${LS_HOME}/config.d
-
+# add templates
+COPY ./templates/ ${LS_HOME}/templates/
 RUN \
  chown -R oneweb:oneweb ${ONEWEB_HOME}
