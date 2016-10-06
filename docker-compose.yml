@@ -27,6 +27,6 @@ filebeat:
     build: filebeat
     user: oneweb
     volumes:
-        - ./data/services:/opt/oneweb/services
+        - ./log/services:/opt/oneweb/services
     links:
         - logstash
