@@ -50,4 +50,4 @@ ENV NUMBER_OF_REPLICAS 0
 # Export HTTP & Transport
 EXPOSE 9200 9300
 
-CMD ["${ES_HOME}/bin/elasticsearch"]
+CMD ["/opt/oneweb/elasticsearch/bin/elasticsearch"]
