@@ -31,12 +31,7 @@ RUN mv ${ES_TMP} ${ES_HOME}
 
 COPY config ${ES_HOME}/config
 
-RUN mkdir ${ES_DATA_DIR} -p
-RUN mkdir ${ES_PLUGIN_DIR} -p
-RUN mkdir ${ES_LOG_DIR} -p
-RUN \
- chown -R oneweb:oneweb ${ONEWEB_HOME}
-RUN chmod -R a+rX  ${ONEWEB_HOME};
+
 #  Set environment variables defaults
 ENV ES_HEAP_SIZE 256m
 ENV CLUSTER_NAME elasticsearch-oneweb
@@ -50,6 +45,13 @@ ENV NUMBER_OF_MASTERS 1
 ENV NUMBER_OF_SHARDS 1
 ENV NUMBER_OF_REPLICAS 0
 
+RUN mkdir ${ES_DATA_DIR} -p
+RUN mkdir ${ES_PLUGIN_DIR} -p
+RUN mkdir ${ES_LOG_DIR} -p
+RUN mkdir ${ES_DATA_DIR}/${CLUSTER_NAME} -p
+RUN \
+ chown -R oneweb:oneweb ${ONEWEB_HOME}
+RUN chmod -R a+rX  ${ONEWEB_HOME};
 # Export HTTP & Transport
 EXPOSE 9200 9300
 
