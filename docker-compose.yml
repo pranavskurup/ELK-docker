@@ -10,7 +10,6 @@ elasticsearch:
 logstash:
     build: logstash
     user: oneweb
-    command: /opt/oneweb/logstash/bin/logstash -f /opt/oneweb/logstash/config.d/logstash.conf
     ports:
         - 5044:5044
     links:
