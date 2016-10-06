@@ -34,5 +34,7 @@ filebeat:
 oneweb-sdk:
     build: oneweb-sdk
     user: oneweb
+    ports:
+        - 8080:8080
     volumes:
         - ./log/services/oneweb-sdk:/opt/oneweb/oneweb-sdk/logs

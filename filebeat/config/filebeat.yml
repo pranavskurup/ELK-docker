@@ -2,7 +2,7 @@ filebeat:
     prospectors:
         -
             paths:
-                - /opt/oneweb/services/oneweb-sdk/tomcat.log
+                - /opt/oneweb/services/oneweb-sdk/*.log
             input_type: tomcat
             document_type: nginx
 
