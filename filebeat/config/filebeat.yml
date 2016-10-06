@@ -1,0 +1,20 @@
+filebeat:
+    prospectors:
+        -
+            paths:
+                - /opt/oneweb/service/tomcat.log
+            input_type: tomcat
+            document_type: tomcat
+
+        -
+            paths:
+                - /var/log/syslog
+            input_type: syslog
+            document_type: linux
+
+registry_file: /opt/oneweb/fb_registry.filebeat
+
+output:
+    logstash:
+        hosts: ["logstash:5044"]
+        worker: 1

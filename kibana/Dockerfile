@@ -25,12 +25,13 @@ RUN \
 
 RUN mv ${KB_TMP} ${KB_HOME}
 
+COPY config ${KB_HOME}/config
 
 RUN \
  chown -R oneweb:oneweb ${ONEWEB_HOME}
 
 RUN ${KB_HOME}/bin/kibana plugin --install elastic/sense
-COPY config ${KB_HOME}/config
+
 
 EXPOSE 5601
 
