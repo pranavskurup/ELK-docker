@@ -1,17 +1,16 @@
 filebeat:
     prospectors:
-        -
-            paths:
-                - /opt/oneweb/services/oneweb-sdk/*.log
-            input_type: log
-            document_type: logs
-            fields: 
-                tenant: core
-                appliance: core-d01
-                service: core-d01-tomcat-sdk-1
-                service_impl: proxy
-                shipper: filebeat
-                tags: "filebeat,core-d01-tomcat-sdk-1,tomcat"
+      - paths:
+          - /opt/oneweb/services/oneweb-sdk/*.log
+        input_type: log
+        document_type: logs
+        fields: 
+            tenant: core
+            appliance: core-d01
+            service: core-d01-tomcat-sdk-1
+            service_impl: proxy
+            shipper: filebeat
+            tags: "filebeat,core-d01-tomcat-sdk-1,tomcat"
 
     registry_file: /opt/oneweb/fb_registry.filebeat
 shipper:
