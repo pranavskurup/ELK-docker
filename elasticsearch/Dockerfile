@@ -31,6 +31,9 @@ RUN mv ${ES_TMP} ${ES_HOME}
 
 COPY config ${ES_HOME}/config
 
+RUN mkdir ${ES_DATA_DIR} -p
+RUN mkdir ${ES_PLUGIN_DIR} -p
+RUN mkdir ${ES_LOG_DIR} -p
 RUN \
  chown -R oneweb:oneweb /opt/oneweb/
 
