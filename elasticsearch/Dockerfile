@@ -38,7 +38,6 @@ RUN mkdir ${ES_LOG_DIR} -p
 
 RUN \
  chown -R oneweb:oneweb ${ONEWEB_HOME}
-RUN chmod -R a+rX  ${ONEWEB_HOME};
 
 #  Set environment variables defaults
 ENV ES_HEAP_SIZE 256m
