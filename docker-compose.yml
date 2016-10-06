@@ -4,5 +4,5 @@ elasticsearch:
     ports:
         - 9200:9200
     volumes:
-        - ./elasticsearch/data:/opt/oneweb/elasticsearch/data
-        - ./elasticsearch/log:/opt/oneweb/elasticsearch/log
+        - ./data/elasticsearch:/opt/oneweb/elasticsearch/data
+        - ./log/elasticsearch:/opt/oneweb/elasticsearch/log
