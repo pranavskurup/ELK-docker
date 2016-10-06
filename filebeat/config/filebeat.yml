@@ -3,14 +3,8 @@ filebeat:
         -
             paths:
                 - /opt/oneweb/services/oneweb-sdk/*.log
-            input_type: catalina
+            input_type: log
             document_type: catalina
-            
-        -
-            paths:
-                - /var/log/syslog
-            input_type: syslog
-            document_type: linux
 
 registry_file: /opt/oneweb/fb_registry.filebeat
 
