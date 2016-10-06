@@ -35,7 +35,6 @@ COPY config ${ES_HOME}/config
 RUN mkdir ${ES_DATA_DIR} -p
 RUN mkdir ${ES_PLUGIN_DIR} -p
 RUN mkdir ${ES_LOG_DIR} -p
-RUN mkdir ${ES_DATA_DIR}/${CLUSTER_NAME} -p
 
 RUN \
  chown -R oneweb:oneweb ${ONEWEB_HOME}
