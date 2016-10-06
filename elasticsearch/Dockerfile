@@ -31,6 +31,9 @@ RUN mv ${ES_TMP} ${ES_HOME}
 
 COPY config ${ES_HOME}/config
 
+RUN \
+ chown -R oneweb:oneweb /opt/oneweb/
+
 #  Set environment variables defaults
 ENV ES_HEAP_SIZE 256m
 ENV CLUSTER_NAME elasticsearch-oneweb
