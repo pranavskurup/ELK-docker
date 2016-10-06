@@ -12,3 +12,4 @@ output:
     logstash:
         hosts: ["logstash:5044"]
         worker: 1
+        index: catalina
