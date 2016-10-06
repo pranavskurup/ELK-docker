@@ -2,10 +2,34 @@ filebeat:
     prospectors:
         -
             paths:
-                - /opt/oneweb/services/oneweb-sdk/*.log
-            input_type: tomcat
-            document_type: nginx
+                - /opt/oneweb/services/oneweb-sdk/catalina.*.log
+            input_type: catalina
+            document_type: tomcat
 
+        -
+            paths:
+                - /opt/oneweb/services/oneweb-sdk/host-manager.*.log
+            input_type: host-manager
+            document_type: tomcat
+
+        -
+            paths:
+                - /opt/oneweb/services/oneweb-sdk/localhost.*.log
+            input_type: localhost
+            document_type: tomcat
+            
+        -
+            paths:
+                - /opt/oneweb/services/oneweb-sdk/localhost_access_log.*.log
+            input_type: localhost_access_log
+            document_type: tomcat
+
+        -
+            paths:
+                - /opt/oneweb/services/oneweb-sdk/manager.*.log
+            input_type: manager
+            document_type: tomcat
+            
         -
             paths:
                 - /var/log/syslog
