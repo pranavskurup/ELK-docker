@@ -19,6 +19,8 @@ ENV ES_TMP ${ONEWEB_HOME}/${ES_PACKAGE_NAME}
 ENV ES_HOME ${ONEWEB_HOME}/elasticsearch
 ENV ES_LOG_DIR ${ES_HOME}/log
 ENV ES_DATA_DIR ${ES_HOME}/data
+ENV ES_PLUGIN_DIR ${ES_HOME}/plugin
+ENV ES_WRK_DIR ${ES_HOME}/work
 
 RUN \
  wget https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/${ES_VERSION}/${ES_PACKAGE} && \
@@ -27,5 +29,22 @@ RUN \
 
 RUN mv ${ES_TMP} ${ES_HOME}
 
+COPY config ${ES_HOME}/config
+
+#  Set environment variables defaults
+ENV ES_HEAP_SIZE 256m
+ENV CLUSTER_NAME elasticsearch-oneweb
+ENV NODE_MASTER true
+ENV NODE_DATA true
+ENV HTTP_ENABLE true
+ENV NETWORK_HOST _site_
+ENV HTTP_CORS_ENABLE true
+ENV HTTP_CORS_ALLOW_ORIGIN *
+ENV NUMBER_OF_MASTERS 1
+ENV NUMBER_OF_SHARDS 1
+ENV NUMBER_OF_REPLICAS 0
+
 # Export HTTP & Transport
 EXPOSE 9200 9300
+
+CMD ["${ES_HOME}/bin/elasticsearch"]

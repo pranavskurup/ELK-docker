@@ -5,3 +5,4 @@ elasticsearch:
         - 9200:9200
     volumes:
         - ./elasticsearch/data:/opt/oneweb/elasticsearch/data
+        - ./elasticsearch/log:/opt/oneweb/elasticsearch/log
