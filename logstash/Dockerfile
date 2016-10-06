@@ -24,9 +24,9 @@ RUN \
  rm -f ${LS_PACKAGE}
 
 RUN mv ${LS_TMP} ${LS_HOME}
-COPY config ${LS_HOME}/config
+COPY config ${LS_HOME}/config.d
 
 RUN \
  chown -R oneweb:oneweb ${ONEWEB_HOME}
 
-CMD ["/opt/oneweb/logstash/bin/logstash -f /opt/oneweb/logstash/config/logstash.conf"]
+CMD ["/opt/oneweb/logstash/bin/logstash -f /opt/oneweb/logstash/config.d/logstash.conf"]
