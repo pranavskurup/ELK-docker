@@ -2,10 +2,15 @@ filebeat:
     prospectors:
         -
             paths:
-                - /opt/oneweb/services/tomcat/tomcat.log
+                - /opt/oneweb/services/oneweb-sdk/tomcat.log
             input_type: tomcat
-            document_type: tomcat
+            document_type: nginx
 
+        -
+            paths:
+                - /var/log/syslog
+            input_type: syslog
+            document_type: linux
 
 registry_file: /opt/oneweb/fb_registry.filebeat
 

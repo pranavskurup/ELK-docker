@@ -30,3 +30,9 @@ filebeat:
         - ./log/services:/opt/oneweb/services
     links:
         - logstash
+
+oneweb-sdk:
+    build: oneweb-sdk
+    user: oneweb
+    volumes:
+        - ./log/services/oneweb-sdk:/opt/oneweb/oneweb-sdk/logs
