@@ -22,7 +22,7 @@ ENV OW_SDK_HOME ${ONEWEB_HOME}/oneweb-sdk
 
 
 RUN \
- wget http://apache.rediris.es/tomcat/tomcat-${OW_SDK_MIN}/v${OW_SDK_PACKAGE}/bin/${OW_SDK_PACKAGE} && \
+ wget http://apache.rediris.es/tomcat/tomcat-${OW_SDK_MIN}/v${OW_SDK_VERSION}/bin/${OW_SDK_PACKAGE} && \
  tar xvzf ${OW_SDK_PACKAGE} && \
  rm -f ${OW_SDK_PACKAGE}
 
