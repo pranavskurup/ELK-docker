@@ -3,8 +3,8 @@ filebeat:
         -
             paths:
                 - /opt/oneweb/services/oneweb-sdk/*.log
-            input_type: tomcat
-            document_type: tomcat
+            input_type: catalina
+            document_type: catalina
             
         -
             paths:
