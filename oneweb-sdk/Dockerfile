@@ -28,6 +28,8 @@ RUN \
 
 RUN mv ${OW_SDK_TMP} ${OW_SDK_HOME}
 
+RUN \
+ chown -R oneweb:oneweb ${ONEWEB_HOME}
 EXPOSE 8080
 EXPOSE 8009
 
