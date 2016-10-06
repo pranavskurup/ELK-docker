@@ -35,8 +35,9 @@ RUN mkdir ${ES_DATA_DIR} -p
 RUN mkdir ${ES_PLUGIN_DIR} -p
 RUN mkdir ${ES_LOG_DIR} -p
 RUN \
- chown -R oneweb:oneweb /opt/oneweb/
-
+ chown -R oneweb:oneweb ${ONEWEB_HOME}
+RUN find ${ONEWEB_HOME} -type d -exec chmod 644 {} \;
+RUN find ${ONEWEB_HOME} -type f -exec chmod 644 {} \;
 #  Set environment variables defaults
 ENV ES_HEAP_SIZE 256m
 ENV CLUSTER_NAME elasticsearch-oneweb
