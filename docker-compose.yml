@@ -12,6 +12,9 @@ logstash:
     user: oneweb
     ports:
         - 5044:5044
+    volumes:
+        - ./logs/logstash:/opt/oneweb/logstash/logs
+        
     links:
         - elasticsearch
 

@@ -30,4 +30,4 @@ COPY config ${LS_HOME}/config.d
 RUN \
  chown -R oneweb:oneweb ${ONEWEB_HOME}
 
- CMD ["/opt/oneweb/logstash/bin/logstash", "-f", "/opt/oneweb/logstash/config.d/logstash.conf"]
+ CMD ["/opt/oneweb/logstash/bin/logstash", "-f", "/opt/oneweb/logstash/config.d/logstash.conf" , "-l" , "/opt/oneweb/logstash/logs/logstash.log"]
