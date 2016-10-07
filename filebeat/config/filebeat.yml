@@ -4,7 +4,7 @@ filebeat:
             paths:
                 - '/opt/oneweb/services/oneweb-sdk/*.log'
             input_type: log
-            document_type: logs
+            document_type: catalina
             fields_under_root: true
             fields:
                 tenant: core
@@ -14,6 +14,8 @@ filebeat:
                 shipper: filebeat
                 tags: 'filebeat,core-d01-tomcat-sdk-1,tomcat'
     registry_file: /opt/oneweb/fb_registry.filebeat
+    spool_size: 2048
+    idle_timeout: 10s
 shipper:
     name: core-d01-fb-1
 output:
